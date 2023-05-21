@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installation and basic usage &mdash; Tilburg Hand 1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Simulation and URDF/Mujoco" href="simulation.html" />
+    <link rel="prev" title="Welcome to Tilburg Hand’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Tilburg Hand
+              <img src="_static/logo_notext.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation and basic usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#motor-gui">Motor GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#customizing-motors-settings">Customizing Motors Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usb-latency">USB Latency</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="simulation.html">Simulation and URDF/Mujoco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motor_interface.html">TilburgHandMotorInterface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="py-modindex.html">Module Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Tilburg Hand</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Installation and basic usage</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/main.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="installation-and-basic-usage">
+<h1>Installation and basic usage<a class="headerlink" href="#installation-and-basic-usage" title="Permalink to this heading"></a></h1>
+<a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" class="align-center" src="_images/logo.png" style="width: 200px;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>The tilburg-hand library contains the basic Python interface to communicate with the Tilburg Hand via USB, together with examples and a handy motor control GUI application (tilburg_hand_motorgui).</p>
+<section id="installation">
+<span id="id1"></span><h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
+<p>The library can be installed via PyPI</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>tilburg-hand
+</pre></div>
+</div>
+<p>or directly from source (<a class="reference external" href="https://github.com/TilburgRobotics/tilburg-hand">GitHub</a>), running the following from inside the main directory:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+</pre></div>
+</div>
+<p>The most critical dependency of the library is the <cite>dynamixel-sdk</cite> Python wrapper, available from PyPi or from <a class="reference external" href="https://github.com/ROBOTIS-GIT/DynamixelSDK">Dynamixel</a> .
+On Linux, the following enables access to USB devices without need of root privileges:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span>dialout<span class="w"> </span><span class="nv">$USER</span>
+</pre></div>
+</div>
+</section>
+<section id="usage">
+<span id="id2"></span><h2>Usage<a class="headerlink" href="#usage" title="Permalink to this heading"></a></h2>
+<p>Using the library is fairly simple. You need to instantiate a Tilburg HandMotorInterface() object, and connect() to the motors.</p>
+<p>Before using the Tilburg Hand, you should generate a configuration file. A default configuration file (including the range of each joints and their zero position) is generated automatically using the included motor control GUI (see below).</p>
+<p>The first time the GUI is opened, you will be asked to configure either a Left or Right Tilburg Hand. The default configuration file will be saved in your user folder. For example, on Linux it will be saved as  $HOME/tilburg_hand/calibration.json .
+This is the directory that the Tilburg Hand library will look for the configuration file in, by default.</p>
+<p>The motor GUI, like the Tilburg Hand library, rely on a second config.json configuration file (included by default within the installed Python library, in the subfolder <cite>tilburg_hand/motorgui/config.json</cite>). The config.json file includes default names for the USB port to use and/or the VID/PID of the U2D2 interface board (for automatic detection of the USB port).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tilburg_hand</span> <span class="kn">import</span> <span class="n">TilburgHandMotorInterface</span><span class="p">,</span> <span class="n">Unit</span>
+
+<span class="n">motors</span> <span class="o">=</span> <span class="n">TilburgHandMotorInterface</span><span class="p">()</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">motors</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+
+<span class="n">pos_normalized</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">motors</span><span class="o">.</span><span class="n">set_pos_vector</span><span class="p">(</span><span class="n">pos_normalized</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="n">Unit</span><span class="o">.</span><span class="n">NORMALIZED</span><span class="p">)</span>
+<span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">motors</span><span class="o">.</span><span class="n">goto_zero_position</span><span class="p">()</span>
+<span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">motors</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Example code is included with the Python package under the <cite>examples</cite> subfolder, and at the accompanying repository <a class="reference external" href="https://github.com/TilburgRobotics/tilburg-hand-contrib">tilburg-hand-contrib</a> .</p>
+</section>
+<section id="motor-gui">
+<span id="id3"></span><h2>Motor GUI<a class="headerlink" href="#motor-gui" title="Permalink to this heading"></a></h2>
+<p>A simple motor-control GUI is installed together with the tilburg_hand library, and can be run as:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tilburg_hand_motorgui
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/motorgui.svg"><img alt="_images/motorgui.svg" class="align-center" src="_images/motorgui.svg" width="700" /></a>
+<a class="reference internal image-reference" href="_images/motor_names.png"><img alt="_images/motor_names.png" class="align-center" src="_images/motor_names.png" style="width: 400px;" /></a>
+</section>
+<section id="customizing-motors-settings">
+<span id="motors-settings"></span><h2>Customizing Motors Settings<a class="headerlink" href="#customizing-motors-settings" title="Permalink to this heading"></a></h2>
+<p>Motors settings like the individual PID gains can be set using the <a class="reference external" href="https://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_wizard2">Dynamixel Wizard 2 application</a> . Set the baudrate to 4000000 and the protocol version to 2.0.</p>
+</section>
+<section id="usb-latency">
+<h2>USB Latency<a class="headerlink" href="#usb-latency" title="Permalink to this heading"></a></h2>
+<p>In order to reduce delays between the computer and the Tilburg Hand, you should enable low-latency settings for USB on your computer.
+This is done automatically by the TilburgHandMotorInterface() object on <strong>Linux</strong>. For Windows, please follow the instructions at <a class="reference external" href="https://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_wizard2/#usb-latency-setting">usb_latency_setting</a> .</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Tilburg Hand’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="simulation.html" class="btn btn-neutral float-right" title="Simulation and URDF/Mujoco" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022+, Tilburg Robotics.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

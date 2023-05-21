@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TilburgHandMotorInterface &mdash; Tilburg Hand 1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Examples" href="examples.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Tilburg Hand
+              <img src="_static/logo_notext.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="main.html">Installation and basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simulation.html">Simulation and URDF/Mujoco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">TilburgHandMotorInterface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#tilburg_hand.motor_interface.Finger"><code class="docutils literal notranslate"><span class="pre">Finger</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.Finger.THUMB_IP"><code class="docutils literal notranslate"><span class="pre">Finger.THUMB_IP</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.Finger.THUMB_MCP"><code class="docutils literal notranslate"><span class="pre">Finger.THUMB_MCP</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.Finger.THUMB_ABD"><code class="docutils literal notranslate"><span class="pre">Finger.THUMB_ABD</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.Finger.THUMB_CMC"><code class="docutils literal notranslate"><span class="pre">Finger.THUMB_CMC</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.Finger.INDEX_DIP"><code class="docutils literal notranslate"><span class="pre">Finger.INDEX_DIP</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.Finger.INDEX_PIP"><code class="docutils literal notranslate"><span class="pre">Finger.INDEX_PIP</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.Finger.INDEX_MCP"><code class="docutils literal notranslate"><span class="pre">Finger.INDEX_MCP</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.Finger.INDEX_ABD"><code class="docutils literal notranslate"><span class="pre">Finger.INDEX_ABD</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.Finger.MIDDLE_DIP"><code class="docutils literal notranslate"><span class="pre">Finger.MIDDLE_DIP</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.Finger.MIDDLE_PIP"><code class="docutils literal notranslate"><span class="pre">Finger.MIDDLE_PIP</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.Finger.MIDDLE_MCP"><code class="docutils literal notranslate"><span class="pre">Finger.MIDDLE_MCP</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.Finger.MIDDLE_ABD"><code class="docutils literal notranslate"><span class="pre">Finger.MIDDLE_ABD</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.Finger.RING_DIP"><code class="docutils literal notranslate"><span class="pre">Finger.RING_DIP</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.Finger.RING_PIP"><code class="docutils literal notranslate"><span class="pre">Finger.RING_PIP</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.Finger.RING_MCP"><code class="docutils literal notranslate"><span class="pre">Finger.RING_MCP</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.Finger.RING_ABD"><code class="docutils literal notranslate"><span class="pre">Finger.RING_ABD</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tilburg_hand.motor_interface.Wrist"><code class="docutils literal notranslate"><span class="pre">Wrist</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.Wrist.PITCH"><code class="docutils literal notranslate"><span class="pre">Wrist.PITCH</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.Wrist.YAW"><code class="docutils literal notranslate"><span class="pre">Wrist.YAW</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tilburg_hand.motor_interface.OperatingMode"><code class="docutils literal notranslate"><span class="pre">OperatingMode</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.OperatingMode.POSITION"><code class="docutils literal notranslate"><span class="pre">OperatingMode.POSITION</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.OperatingMode.CURRENT"><code class="docutils literal notranslate"><span class="pre">OperatingMode.CURRENT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.OperatingMode.CURRENT_BASED_POSITION"><code class="docutils literal notranslate"><span class="pre">OperatingMode.CURRENT_BASED_POSITION</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tilburg_hand.motor_interface.Unit"><code class="docutils literal notranslate"><span class="pre">Unit</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.Unit.RAW"><code class="docutils literal notranslate"><span class="pre">Unit.RAW</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.Unit.NORMALIZED"><code class="docutils literal notranslate"><span class="pre">Unit.NORMALIZED</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.Unit.DEGREES"><code class="docutils literal notranslate"><span class="pre">Unit.DEGREES</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.Unit.DEG_PER_SECOND"><code class="docutils literal notranslate"><span class="pre">Unit.DEG_PER_SECOND</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.Unit.REV_PER_MINUTE"><code class="docutils literal notranslate"><span class="pre">Unit.REV_PER_MINUTE</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tilburg_hand.motor_interface.TilburgHandMotorInterface"><code class="docutils literal notranslate"><span class="pre">TilburgHandMotorInterface</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.TilburgHandMotorInterface.connect"><code class="docutils literal notranslate"><span class="pre">TilburgHandMotorInterface.connect()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.TilburgHandMotorInterface.disconnect"><code class="docutils literal notranslate"><span class="pre">TilburgHandMotorInterface.disconnect()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.TilburgHandMotorInterface.load_calibration"><code class="docutils literal notranslate"><span class="pre">TilburgHandMotorInterface.load_calibration()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.TilburgHandMotorInterface.save_calibration"><code class="docutils literal notranslate"><span class="pre">TilburgHandMotorInterface.save_calibration()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.TilburgHandMotorInterface.check_enabled_motors"><code class="docutils literal notranslate"><span class="pre">TilburgHandMotorInterface.check_enabled_motors()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.TilburgHandMotorInterface.set_operating_mode"><code class="docutils literal notranslate"><span class="pre">TilburgHandMotorInterface.set_operating_mode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.TilburgHandMotorInterface.set_pos_vector"><code class="docutils literal notranslate"><span class="pre">TilburgHandMotorInterface.set_pos_vector()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.TilburgHandMotorInterface.set_pos_single"><code class="docutils literal notranslate"><span class="pre">TilburgHandMotorInterface.set_pos_single()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.TilburgHandMotorInterface.get_encoder_vector"><code class="docutils literal notranslate"><span class="pre">TilburgHandMotorInterface.get_encoder_vector()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.TilburgHandMotorInterface.get_encoder_single"><code class="docutils literal notranslate"><span class="pre">TilburgHandMotorInterface.get_encoder_single()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.TilburgHandMotorInterface.set_current_vector"><code class="docutils literal notranslate"><span class="pre">TilburgHandMotorInterface.set_current_vector()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.TilburgHandMotorInterface.set_current_single"><code class="docutils literal notranslate"><span class="pre">TilburgHandMotorInterface.set_current_single()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.TilburgHandMotorInterface.get_current_vector"><code class="docutils literal notranslate"><span class="pre">TilburgHandMotorInterface.get_current_vector()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.TilburgHandMotorInterface.get_velocity_vector"><code class="docutils literal notranslate"><span class="pre">TilburgHandMotorInterface.get_velocity_vector()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.TilburgHandMotorInterface.get_temperature_single"><code class="docutils literal notranslate"><span class="pre">TilburgHandMotorInterface.get_temperature_single()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.TilburgHandMotorInterface.set_torques"><code class="docutils literal notranslate"><span class="pre">TilburgHandMotorInterface.set_torques()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.TilburgHandMotorInterface.set_leds"><code class="docutils literal notranslate"><span class="pre">TilburgHandMotorInterface.set_leds()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tilburg_hand.motor_interface.TilburgHandMotorInterface.goto_zero_position"><code class="docutils literal notranslate"><span class="pre">TilburgHandMotorInterface.goto_zero_position()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="py-modindex.html">Module Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Tilburg Hand</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">TilburgHandMotorInterface</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/motor_interface.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="tilburghandmotorinterface">
+<h1>TilburgHandMotorInterface<a class="headerlink" href="#tilburghandmotorinterface" title="Permalink to this heading"></a></h1>
+<p>test</p>
+<span class="target" id="module-tilburg_hand.motor_interface"></span><dl class="py class">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.Finger">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tilburg_hand.motor_interface.</span></span><span class="sig-name descname"><span class="pre">Finger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tilburg_hand.motor_interface.Finger" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">IntEnum</span></code></p>
+<p>Constants to identify the position of each joint in the motor vectors, for example
+to identify individual joints from the vector returned by get_encoder_vector(), or to
+select individual joints in the vector passed to set_position_vector().</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.Finger.THUMB_IP">
+<span class="sig-name descname"><span class="pre">THUMB_IP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#tilburg_hand.motor_interface.Finger.THUMB_IP" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.Finger.THUMB_MCP">
+<span class="sig-name descname"><span class="pre">THUMB_MCP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#tilburg_hand.motor_interface.Finger.THUMB_MCP" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.Finger.THUMB_ABD">
+<span class="sig-name descname"><span class="pre">THUMB_ABD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#tilburg_hand.motor_interface.Finger.THUMB_ABD" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.Finger.THUMB_CMC">
+<span class="sig-name descname"><span class="pre">THUMB_CMC</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#tilburg_hand.motor_interface.Finger.THUMB_CMC" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.Finger.INDEX_DIP">
+<span class="sig-name descname"><span class="pre">INDEX_DIP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#tilburg_hand.motor_interface.Finger.INDEX_DIP" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.Finger.INDEX_PIP">
+<span class="sig-name descname"><span class="pre">INDEX_PIP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#tilburg_hand.motor_interface.Finger.INDEX_PIP" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.Finger.INDEX_MCP">
+<span class="sig-name descname"><span class="pre">INDEX_MCP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">6</span></em><a class="headerlink" href="#tilburg_hand.motor_interface.Finger.INDEX_MCP" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.Finger.INDEX_ABD">
+<span class="sig-name descname"><span class="pre">INDEX_ABD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">7</span></em><a class="headerlink" href="#tilburg_hand.motor_interface.Finger.INDEX_ABD" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.Finger.MIDDLE_DIP">
+<span class="sig-name descname"><span class="pre">MIDDLE_DIP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8</span></em><a class="headerlink" href="#tilburg_hand.motor_interface.Finger.MIDDLE_DIP" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.Finger.MIDDLE_PIP">
+<span class="sig-name descname"><span class="pre">MIDDLE_PIP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">9</span></em><a class="headerlink" href="#tilburg_hand.motor_interface.Finger.MIDDLE_PIP" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.Finger.MIDDLE_MCP">
+<span class="sig-name descname"><span class="pre">MIDDLE_MCP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10</span></em><a class="headerlink" href="#tilburg_hand.motor_interface.Finger.MIDDLE_MCP" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.Finger.MIDDLE_ABD">
+<span class="sig-name descname"><span class="pre">MIDDLE_ABD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">11</span></em><a class="headerlink" href="#tilburg_hand.motor_interface.Finger.MIDDLE_ABD" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.Finger.RING_DIP">
+<span class="sig-name descname"><span class="pre">RING_DIP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">12</span></em><a class="headerlink" href="#tilburg_hand.motor_interface.Finger.RING_DIP" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.Finger.RING_PIP">
+<span class="sig-name descname"><span class="pre">RING_PIP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">13</span></em><a class="headerlink" href="#tilburg_hand.motor_interface.Finger.RING_PIP" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.Finger.RING_MCP">
+<span class="sig-name descname"><span class="pre">RING_MCP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">14</span></em><a class="headerlink" href="#tilburg_hand.motor_interface.Finger.RING_MCP" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.Finger.RING_ABD">
+<span class="sig-name descname"><span class="pre">RING_ABD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">15</span></em><a class="headerlink" href="#tilburg_hand.motor_interface.Finger.RING_ABD" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.Wrist">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tilburg_hand.motor_interface.</span></span><span class="sig-name descname"><span class="pre">Wrist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tilburg_hand.motor_interface.Wrist" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">IntEnum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.Wrist.PITCH">
+<span class="sig-name descname"><span class="pre">PITCH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">16</span></em><a class="headerlink" href="#tilburg_hand.motor_interface.Wrist.PITCH" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.Wrist.YAW">
+<span class="sig-name descname"><span class="pre">YAW</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">17</span></em><a class="headerlink" href="#tilburg_hand.motor_interface.Wrist.YAW" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.OperatingMode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tilburg_hand.motor_interface.</span></span><span class="sig-name descname"><span class="pre">OperatingMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tilburg_hand.motor_interface.OperatingMode" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">IntEnum</span></code></p>
+<p>Constants to identify the 3 control modes for the motor. The default mode is POSITION, which acts as servo
+control with a pre-defined PID controlled. More details at
+<a class="reference external" href="https://emanual.robotis.com/docs/en/dxl/x/xl330-m288/#operating-mode">https://emanual.robotis.com/docs/en/dxl/x/xl330-m288/#operating-mode</a> .</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.OperatingMode.POSITION">
+<span class="sig-name descname"><span class="pre">POSITION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#tilburg_hand.motor_interface.OperatingMode.POSITION" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.OperatingMode.CURRENT">
+<span class="sig-name descname"><span class="pre">CURRENT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#tilburg_hand.motor_interface.OperatingMode.CURRENT" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.OperatingMode.CURRENT_BASED_POSITION">
+<span class="sig-name descname"><span class="pre">CURRENT_BASED_POSITION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#tilburg_hand.motor_interface.OperatingMode.CURRENT_BASED_POSITION" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.Unit">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tilburg_hand.motor_interface.</span></span><span class="sig-name descname"><span class="pre">Unit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tilburg_hand.motor_interface.Unit" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">IntEnum</span></code></p>
+<p>Constants to identify the units used in each function.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.Unit.RAW">
+<span class="sig-name descname"><span class="pre">RAW</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#tilburg_hand.motor_interface.Unit.RAW" title="Permalink to this definition"></a></dt>
+<dd><p>raw values directly read/written in the Dynamixel motors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>RAW</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.Unit.NORMALIZED">
+<span class="sig-name descname"><span class="pre">NORMALIZED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#tilburg_hand.motor_interface.Unit.NORMALIZED" title="Permalink to this definition"></a></dt>
+<dd><p>values clipped in [0, 1], automatically mapped to the full range of the joints.
+0 corresponds to ‘joint open/extended’, while 1 corresponds to ‘joint closed’.
+For abduction-adduction joints (lateral finger movement)), 0.5 is the middle position,
+0 is movement towards the thumb (regardless of hand left/right), and 1 is movement away
+from the thumb.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>NORMALIZED</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.Unit.DEGREES">
+<span class="sig-name descname"><span class="pre">DEGREES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#tilburg_hand.motor_interface.Unit.DEGREES" title="Permalink to this definition"></a></dt>
+<dd><p>values are expressed in degrees, within the valid range for each joint. Low values extend the joint
+while high value flex/close the joint.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>DEGREES</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.Unit.DEG_PER_SECOND">
+<span class="sig-name descname"><span class="pre">DEG_PER_SECOND</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#tilburg_hand.motor_interface.Unit.DEG_PER_SECOND" title="Permalink to this definition"></a></dt>
+<dd><p>angular velocity reading in degrees/s.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>DEG_PER_SECOND</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.Unit.REV_PER_MINUTE">
+<span class="sig-name descname"><span class="pre">REV_PER_MINUTE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#tilburg_hand.motor_interface.Unit.REV_PER_MINUTE" title="Permalink to this definition"></a></dt>
+<dd><p>angular velocity reading in revolutions/min.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>REV_PER_MINUTE</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.TilburgHandMotorInterface">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tilburg_hand.motor_interface.</span></span><span class="sig-name descname"><span class="pre">TilburgHandMotorInterface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calibration_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hand_orientation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'right'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Unit.NORMALIZED</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tilburg_hand.motor_interface.TilburgHandMotorInterface" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Main Python interface for the Tilburg Hand.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tilburg_hand</span> <span class="kn">import</span> <span class="n">TilburgHandMotorInterface</span><span class="p">,</span> <span class="n">Unit</span>
+
+<span class="n">motors</span> <span class="o">=</span> <span class="n">TilburgHandMotorInterface</span><span class="p">()</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">motors</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+
+<span class="n">pos_normalized</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">motors</span><span class="o">.</span><span class="n">set_pos_vector</span><span class="p">(</span><span class="n">pos_normalized</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="n">Unit</span><span class="o">.</span><span class="n">NORMALIZED</span><span class="p">)</span>
+<span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">motors</span><span class="o">.</span><span class="n">goto_zero_position</span><span class="p">()</span>
+<span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">motors</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.TilburgHandMotorInterface.connect">
+<span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tilburg_hand.motor_interface.TilburgHandMotorInterface.connect" title="Permalink to this definition"></a></dt>
+<dd><p>Start a connection to the Tilburg Hand motors.</p>
+<p>If connection is successful and the calibration file does not contain initial default motor positions
+(motor_calib_zero_pos_ticks), the default initial position is filled in with the position of the motors
+at startup.</p>
+<p>The method also sets useful fields such as <cite>self.connected</cite> (True/False), and <a href="#id1"><span class="problematic" id="id2">`</span></a>self.motor_enabled’ (list of
+booleans for each motor, depending on whether each motor was detected or not).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1 on successful connection, -1 on error.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.TilburgHandMotorInterface.disconnect">
+<span class="sig-name descname"><span class="pre">disconnect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tilburg_hand.motor_interface.TilburgHandMotorInterface.disconnect" title="Permalink to this definition"></a></dt>
+<dd><p>Closes the connection to the Tilburg Hand motors. Please note that this is required, or else the motors
+will remain in Torque-enabled mode.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.TilburgHandMotorInterface.load_calibration">
+<span class="sig-name descname"><span class="pre">load_calibration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calibration_file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tilburg_hand.motor_interface.TilburgHandMotorInterface.load_calibration" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.TilburgHandMotorInterface.save_calibration">
+<span class="sig-name descname"><span class="pre">save_calibration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calibration_file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tilburg_hand.motor_interface.TilburgHandMotorInterface.save_calibration" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.TilburgHandMotorInterface.check_enabled_motors">
+<span class="sig-name descname"><span class="pre">check_enabled_motors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tilburg_hand.motor_interface.TilburgHandMotorInterface.check_enabled_motors" title="Permalink to this definition"></a></dt>
+<dd><p>Detect which motors are connected.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of booleans for each motor, identifying which motors were detected.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.TilburgHandMotorInterface.set_operating_mode">
+<span class="sig-name descname"><span class="pre">set_operating_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">OperatingMode.POSITION</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tilburg_hand.motor_interface.TilburgHandMotorInterface.set_operating_mode" title="Permalink to this definition"></a></dt>
+<dd><p>Set the desired operating mode. You <em>must</em> call this function with motor torque off,
+i.e., temporarily setting set_torques(False).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mode</strong> (<a class="reference internal" href="source/tilburg_hand.html#tilburg_hand.motor_interface.OperatingMode" title="tilburg_hand.motor_interface.OperatingMode"><em>OperatingMode</em></a><em>, </em><em>optional</em>) – <p>one of OperatingMode modes.
+Allowed modes are:</p>
+<blockquote>
+<div><p>OperatingMode.POSITION: control using set_pos_vector and set_pos_single
+OperatingMode.CURRENT:  control using set_current_vector
+OperatingMode.CURRENT_BASED_POSITION: control using both position and current</p>
+</div></blockquote>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.TilburgHandMotorInterface.set_pos_vector">
+<span class="sig-name descname"><span class="pre">set_pos_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">positions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">margin_pct</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tilburg_hand.motor_interface.TilburgHandMotorInterface.set_pos_vector" title="Permalink to this definition"></a></dt>
+<dd><p>Set the position of all motors at the same time (the vector must have 16 or 18 components).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>positions</strong> (<em>list</em>) – vector with a position value for each motor</p></li>
+<li><p><strong>unit</strong> (<a class="reference internal" href="source/tilburg_hand.html#tilburg_hand.motor_interface.Unit" title="tilburg_hand.motor_interface.Unit"><em>Unit</em></a><em>, </em><em>optional</em>) – unit of the values in the position vector (Unit.RAW, Unit.NORMALIZED, Unit.DEGREES).
+If None, the default unit is used, as selected in the constructor.</p></li>
+<li><p><strong>margin_pct</strong> – if normalized positions are chosen, then values from [0,1] are renormalized to
+[margin_pct, 1-margin_pct] to decrease the likelihood of self collisions.</p></li>
+</ul>
+</dd>
+</dl>
+<p>0 corresponds to open, 1 to closed (e.g., in flex joints)</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.TilburgHandMotorInterface.set_pos_single">
+<span class="sig-name descname"><span class="pre">set_pos_single</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">motor_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">margin_pct</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tilburg_hand.motor_interface.TilburgHandMotorInterface.set_pos_single" title="Permalink to this definition"></a></dt>
+<dd><p>Set the position of a single motors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>motor_id</strong> (<em>int</em>) – id of the motor to control (Finger.x)</p></li>
+<li><p><strong>position</strong> (<em>int</em>) – position value for each motor</p></li>
+<li><p><strong>unit</strong> (<a class="reference internal" href="source/tilburg_hand.html#tilburg_hand.motor_interface.Unit" title="tilburg_hand.motor_interface.Unit"><em>Unit</em></a><em>, </em><em>optional</em>) – unit of the values in the position vector (Unit.RAW, Unit.NORMALIZED, Unit.DEGREES).
+If None, the default unit is used, as selected in the constructor.</p></li>
+<li><p><strong>margin_pct</strong> – if normalized positions are chosen, then values from [0,1] are renormalized to
+[margin_pct, 1-margin_pct] to decrease the likelihood of self collisions.</p></li>
+</ul>
+</dd>
+</dl>
+<p>0 corresponds to open, 1 to closed (e.g., in flex joints)</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.TilburgHandMotorInterface.get_encoder_vector">
+<span class="sig-name descname"><span class="pre">get_encoder_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tilburg_hand.motor_interface.TilburgHandMotorInterface.get_encoder_vector" title="Permalink to this definition"></a></dt>
+<dd><p>Get the position of all motors at the same time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>unit</strong> (<a class="reference internal" href="source/tilburg_hand.html#tilburg_hand.motor_interface.Unit" title="tilburg_hand.motor_interface.Unit"><em>Unit</em></a><em>, </em><em>optional</em>) – unit of the values in the position vector (Unit.RAW, Unit.NORMALIZED, Unit.DEGREES).
+If None, the default unit is used, as selected in the constructor.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the encoder values for all motors, converted to the desired unit.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int or float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.TilburgHandMotorInterface.get_encoder_single">
+<span class="sig-name descname"><span class="pre">get_encoder_single</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">motor_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tilburg_hand.motor_interface.TilburgHandMotorInterface.get_encoder_single" title="Permalink to this definition"></a></dt>
+<dd><p>Get the position of a single motor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>motor_id</strong> (<em>int</em>) – id of the motor (Finger.x)</p></li>
+<li><p><strong>unit</strong> (<a class="reference internal" href="source/tilburg_hand.html#tilburg_hand.motor_interface.Unit" title="tilburg_hand.motor_interface.Unit"><em>Unit</em></a><em>, </em><em>optional</em>) – unit of the value for the position (Unit.RAW, Unit.NORMALIZED, Unit.DEGREES).
+If None, the default unit is used, as selected in the constructor.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the encoder value for the motor with motor_id, converted to the desired unit.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int or float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.TilburgHandMotorInterface.set_current_vector">
+<span class="sig-name descname"><span class="pre">set_current_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">currents</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tilburg_hand.motor_interface.TilburgHandMotorInterface.set_current_vector" title="Permalink to this definition"></a></dt>
+<dd><p>Set the target current/force for all motors at the same time (the vector must have 16 or 18 components).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>currents</strong> (<em>list</em>) – vector with a current value for each motor (raw in [-1700, 1700], roughly corresponding to
+1mA per tick).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.TilburgHandMotorInterface.set_current_single">
+<span class="sig-name descname"><span class="pre">set_current_single</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">motor_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tilburg_hand.motor_interface.TilburgHandMotorInterface.set_current_single" title="Permalink to this definition"></a></dt>
+<dd><p>Set the target current/force for a single motor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>motor_id</strong> (<em>int</em>) – id of the motor (Finger.x)</p></li>
+<li><p><strong>current</strong> (<em>int</em>) – vector with a current value for the selected motor (raw in [-1700, 1700], roughly corresponding
+to 1mA per tick).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.TilburgHandMotorInterface.get_current_vector">
+<span class="sig-name descname"><span class="pre">get_current_vector</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tilburg_hand.motor_interface.TilburgHandMotorInterface.get_current_vector" title="Permalink to this definition"></a></dt>
+<dd><p>Get the current measurement (roughly indicative of torque) for all motors at the same time. This can be used to
+detect torque/forces applied to each motor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the value of current measurements for all motors (roughly corresponding to 1mA per tick).</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.TilburgHandMotorInterface.get_velocity_vector">
+<span class="sig-name descname"><span class="pre">get_velocity_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tilburg_hand.motor_interface.TilburgHandMotorInterface.get_velocity_vector" title="Permalink to this definition"></a></dt>
+<dd><p>Get the velocity of all motors at the same time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>unit</strong> (<a class="reference internal" href="source/tilburg_hand.html#tilburg_hand.motor_interface.Unit" title="tilburg_hand.motor_interface.Unit"><em>Unit</em></a><em>, </em><em>optional</em>) – unit of the values in the position vector (Unit.RAW, Unit.DEG_PER_SECOND, Unit.REV_PER_MINUTE).
+If None, RAW is selected. Raw values are ~ 0.229 rev/min (1.374 deg/s) per tick.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the velocity values for all motors, converted to the desired unit.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int or float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.TilburgHandMotorInterface.get_temperature_single">
+<span class="sig-name descname"><span class="pre">get_temperature_single</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">motor_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tilburg_hand.motor_interface.TilburgHandMotorInterface.get_temperature_single" title="Permalink to this definition"></a></dt>
+<dd><p>Get the temperature reading for a single motor, expressed in degrees Celsius.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>motor_id</strong> (<em>int</em>) – id of the motor (Finger.x)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.TilburgHandMotorInterface.set_torques">
+<span class="sig-name descname"><span class="pre">set_torques</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tilburg_hand.motor_interface.TilburgHandMotorInterface.set_torques" title="Permalink to this definition"></a></dt>
+<dd><p>Turn on/off the torque for all motors. Note that this is called automatically in connect()/disconnect().
+Motors will ignore movement commands if torque is not enabled.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>boolean</em><em> or </em><em>int</em>) – True/False to enable/disable</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.TilburgHandMotorInterface.set_leds">
+<span class="sig-name descname"><span class="pre">set_leds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tilburg_hand.motor_interface.TilburgHandMotorInterface.set_leds" title="Permalink to this definition"></a></dt>
+<dd><p>Turn on/off the LEDs for all motors. Note that this is called automatically in connect()/disconnect().</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>boolean</em><em> or </em><em>int</em>) – True/False to enable/disable</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tilburg_hand.motor_interface.TilburgHandMotorInterface.goto_zero_position">
+<span class="sig-name descname"><span class="pre">goto_zero_position</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tilburg_hand.motor_interface.TilburgHandMotorInterface.goto_zero_position" title="Permalink to this definition"></a></dt>
+<dd><p>Utility method to move all motors to their default zero position.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="examples.html" class="btn btn-neutral float-left" title="Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022+, Tilburg Robotics.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

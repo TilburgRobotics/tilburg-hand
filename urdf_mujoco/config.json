@@ -1,0 +1,10 @@
+{
+    "documentId": "54c3c669ae44840c651adf93",
+    "outputFormat": "urdf",
+    "assemblyName": "right_hand_assembly",
+    "useScads": true,
+    "mergeSTLs": "all",
+    "simplifySTLs": "all",
+    "robotName": "tilburg_hand",
+}
+

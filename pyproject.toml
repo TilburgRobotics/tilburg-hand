@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=65.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tilburg_hand"
+version = "1.0.0"
+authors = [
+  { name="Giacomo Spigler", email="contact@tilburg-robotics.eu" },
+]
+description = "Tilburg Hand motor interface and example code."
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+keywords = ["Tilburg Hand", "robot hand", "robotics", "low-cost dexterous robot hand"]
+
+dependencies = [
+    "pyserial>=3.5",
+    "dynamixel-sdk>=3.7"
+]
+
+[project.urls]
+"Homepage" = "https://www.tilburg-robotics.eu"
+"GitHub" = "https://github.com/TilburgRobotics"
+#"Bug Tracker" = "https://github.com/TilburgRobotics/tilburg_hand/issues"
+
+
+[tool.black]
+line-length = 120
+#target_version = ['py38']
+include = '\.pyi?$'
+exclude = '''
+(
+  /(
+      \.eggs
+    | \.git
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+  )/
+)
+'''
+
+[project.gui-scripts]
+tilburg_hand_motorgui = "tilburg_hand.motorgui.motor_gui:run"
