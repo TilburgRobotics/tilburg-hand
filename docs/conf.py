@@ -13,8 +13,7 @@
 import os
 import sys
 sys.path.insert(0, os.path.abspath('..'))
-
-import tilburg_hand
+from tilburg_hand import __version__
 
 # -- Project information -----------------------------------------------------
 
@@ -23,7 +22,7 @@ copyright = '2022+, Tilburg Robotics'
 author = 'Tilburg Robotics'
 
 # The full version, including alpha/beta/rc tags
-release = tilburg_hand.__version__
+release = __version__
 
 
 # -- General configuration ---------------------------------------------------
