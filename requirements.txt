@@ -1,0 +1,2 @@
+pyserial==3.5
+dynamixel-sdk==3.7.31
