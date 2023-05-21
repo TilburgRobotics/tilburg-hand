@@ -1,2 +1,0 @@
-[gui_scripts]
-tilburg_hand_motorgui = tilburg_hand.motorgui.motor_gui:run

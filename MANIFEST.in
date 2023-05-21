@@ -1,0 +1,4 @@
+include src/tilburg_hand/*
+include src/tilburg_hand/motorgui/*
+include src/tilburg_hand_urdf_mujoco/*
+include examples/*

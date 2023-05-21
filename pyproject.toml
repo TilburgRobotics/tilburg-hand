@@ -25,9 +25,6 @@ dependencies = [
     "dynamixel-sdk>=3.7",
 ]
 
-[tool.setuptools]
-py-modules = ["tilburg_hand", "tilburg_hand_urdf_mujoco"]
-
 [project.urls]
 "Homepage" = "https://www.tilburg-robotics.eu"
 "GitHub" = "https://github.com/TilburgRobotics"
@@ -57,3 +54,9 @@ exclude = '''
 
 [project.gui-scripts]
 tilburg_hand_motorgui = "tilburg_hand.motorgui.motor_gui:run"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
