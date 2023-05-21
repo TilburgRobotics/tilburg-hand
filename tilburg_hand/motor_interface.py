@@ -3,7 +3,6 @@ import os
 import sys
 import json
 import ctypes
-import numpy as np
 from enum import IntEnum
 
 if sys.platform == 'linux':
@@ -126,11 +125,18 @@ def _set_low_latency_mode(serial, low_latency_settings):
         raise ValueError('Failed to update ASYNC_LOW_LATENCY flag to {}: {}'.format(low_latency_settings, e))
 
 
+def _np_clip(value, min_, max_):
+    if value < min_:
+        return min_
+    elif value > max_:
+        return max_
+    return value
+
 def _clip(value, val1, val2):
     if val1 <= val2:
-        return np.clip(value, val1, val2)
+        return _np_clip(value, val1, val2)
     else:
-        return np.clip(value, val2, val1)
+        return _np_clip(value, val2, val1)
 
 
 def _convert_unit(unit):
@@ -515,7 +521,7 @@ class TilburgHandMotorInterface:
                                          self.motor_calib_max_range_ticks[i]))
         elif unit == Unit.NORMALIZED or (unit is None and self.default_unit == Unit.NORMALIZED):
             for i in range(len(positions)):
-                positions[i] = np.clip(positions[i], 0, 1)
+                positions[i] = _np_clip(positions[i], 0, 1)
                 min_val = self.motor_calib_min_range_ticks[i]*(1.0+margin_pct)
                 max_val = self.motor_calib_max_range_ticks[i]*(1.0-margin_pct)
                 positions[i] = int(positions[i]*(max_val-min_val) + min_val)
@@ -573,7 +579,7 @@ class TilburgHandMotorInterface:
                                  self.motor_calib_min_range_ticks[motor_id],
                                  self.motor_calib_max_range_ticks[motor_id]))
         elif unit == Unit.NORMALIZED or (unit is None and self.default_unit == Unit.NORMALIZED):
-            position = np.clip(position, 0, 1)
+            position = _np_clip(position, 0, 1)
             min_val = self.motor_calib_min_range_ticks[motor_id]*(1.0+margin_pct)
             max_val = self.motor_calib_max_range_ticks[motor_id]*(1.0-margin_pct)
             position = int(position*(max_val-min_val) + min_val)
