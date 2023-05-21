@@ -22,7 +22,8 @@ keywords = ["Tilburg Hand", "robot hand", "robotics", "low-cost dexterous robot 
 
 dependencies = [
     "pyserial>=3.5",
-    "dynamixel-sdk>=3.7"
+    "dynamixel-sdk>=3.7",
+    "numpy>=1.24"
 ]
 
 [project.urls]
