@@ -2,7 +2,7 @@
 <img src="docs/images/logo.png" alt= "Tilburg Robotics" width="300px">
 </p>
 
-The tilburg-hand repository contains the main Python library used to control the `Tilburg Hand <https://www.tilburg-robotics.eu>`_ . The repository also includes documentation, examples, a motor gui (installed as `tilburg_hand_motorgui`), and urdf + Mujoco xml models for the robot.
+The tilburg-hand repository contains the main Python library used to control the [Tilburg Hand](https://www.tilburg-robotics.eu). The repository also includes documentation, examples, a motor gui (installed as `tilburg_hand_motorgui`), and urdf + Mujoco xml models for the robot.
 
 <br/>
 Required libraries:<br/>
